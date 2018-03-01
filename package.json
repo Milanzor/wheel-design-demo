@@ -1,0 +1,59 @@
+{
+  "name": "stein-boilerplate",
+  "version": "1.0.0",
+  "description": "stein.js boilerplate app",
+  "main": "assets/",
+  "author": "Milan van As <milanvanas@gmail.com>",
+  "license": "MIT",
+  "test": "yarn test",
+  "scripts": {
+    "clean": "rimraf public",
+    "build": "webpack --progress",
+    "build:dev": "yarn build --env.env=dev",
+    "build:prod": "yarn build --env.env=prod",
+    "dev": "webpack-dev-server --env.env=dev",
+    "watch": "yarn build --watch",
+    "watch:dev": "yarn watch --env.env=dev",
+    "watch:prod": "yarn watch --env.env=prod",
+    "test": "cross-env BABEL_ENV=test mocha --require ignore-styles --require babel-register --require jsdom-global/register --colors ./app/**/*.test.js",
+    "test:watch": "yarn test -w",
+    "serve": "serve public",
+    "travis": "yarn test && yarn build:prod"
+  },
+  "dependencies": {
+    "node-normalize-scss": "^3.0.0",
+    "stein": "^1.x"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.8",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^11.5.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.0.0",
+    "node-sass": "^4.7.2",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^6.0.6",
+    "serve": "^6.4.9",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0",
+    "webpack-jarvis": "^0.3.0",
+    "webpack-merge": "^4.1.1",
+    "webpack-watched-glob-entries-plugin": "^1.1.1"
+  }
+}
