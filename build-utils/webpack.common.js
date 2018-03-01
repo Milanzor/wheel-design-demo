@@ -11,7 +11,7 @@ const extractPlugin = new ExtractTextPlugin({
 
 // Check to see if we have a template for our apps index.html
 const htmlPluginOptions = {
-    title: 'Stein.js',
+    title: 'Wheel Disc Showcase',
     template: './build-utils/template.index.html'
 };
 
@@ -36,7 +36,10 @@ module.exports = (env) => {
                     test: /\.scss$/,
                     use: extractPlugin.extract({
                         fallback: 'style-loader',
-                        use: ['css-loader', 'sass-loader']
+                        use: [
+                            {loader: 'css-loader', options: {minimize: true}},
+                            'sass-loader',
+                        ]
                     })
                 },
 

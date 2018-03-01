@@ -1,7 +1,7 @@
 /**
  * Vendors
  */
-@import '~node-normalize-scss/normalize';
+@import '~bootstrap/dist/css/bootstrap.css';
 
 body {
     margin: 0;
@@ -16,28 +16,25 @@ body {
     z-index: 10;
     width: 100%;
     transform: translateX(-50%);
-    background: gray;
+    background: lightblue;
     padding: 25px;
     font-size: 10px;
-}
-
-.controls button {
-    margin: 5px 0;
+    button {
+        margin: 5px 0;
+    }
 }
 
 .wheel {
     position: relative;
     margin: 0 0 125px 0;
-}
-
-.wheel img {
-    width: 100vw;
-    margin: auto;
-    height: auto;
+    img {
+        width: 100vw;
+        margin: auto;
+        height: auto;
+    }
 }
 
 @media (min-width: 500px) {
-
     .wheel img {
         width: 60vw;
     }
@@ -50,10 +47,28 @@ body {
     }
 }
 
+$speeds: (
+        'STOP': 0,
+        'SPEED-100-RPM': 0.6,
+        'SPEED-200-RPM': 0.3,
+        'SPEED-400-RPM': 0.15,
+        'SPEED-600-RPM': 0.1,
+        'SPEED-800-RPM': 0.075,
+        'SPEED-1000-RPM': 0.06,
+);
+
+@each $cls, $speed in $speeds {
+    .wheel.spin.#{$cls} img {
+        -webkit-animation-duration: #{$speed}s;
+        -moz-animation-duration: #{$speed}s;
+        animation-duration: #{$speed}s;
+    }
+}
+
 .wheel.spin img {
-    -webkit-animation: spin 2s linear infinite;
-    -moz-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+    -webkit-animation: spin linear infinite;
+    -moz-animation: spin linear infinite;
+    animation: spin linear infinite;
 }
 
 @keyframes spin {

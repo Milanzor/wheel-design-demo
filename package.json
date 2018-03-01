@@ -21,6 +21,7 @@
     "travis": "yarn test && yarn build:prod"
   },
   "dependencies": {
+    "bootstrap": "3",
     "node-normalize-scss": "^3.0.0",
     "stein": "^1.x"
   },
